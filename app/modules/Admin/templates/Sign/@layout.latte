@@ -1,0 +1,18 @@
+{layout '../@layout.latte'}
+
+{block topMenu}
+    <div style="float: right">
+        <a n:href=":Front:Homepage:" class="button top">Front</a>
+    </div>
+    {block header}{/block}
+{/block}
+
+{block layoutStyles}
+    {*<link rel="stylesheet" href="{$basePath}/css/login.css">*}
+    <style>
+        #content {
+            margin-left: auto;
+            margin-top: auto;
+        }
+    </style>
+{/block}

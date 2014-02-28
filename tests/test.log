@@ -1,0 +1,5 @@
+PHP 5.4.24 | "php-cgi.exe" -n -c "G:\wamp\wamp\data\localweb\Joseki\Sandbox\tests\php-win.ini" | 20 threads
+
+-- OK: AppTests\TestCases\example.phpt
+
+OK (1 tests)

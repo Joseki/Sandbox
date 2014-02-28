@@ -1,0 +1,18 @@
+{block main}
+    <header>{include #topMenu}</header>
+    <h1 class="dominant">Administrace</h1>
+    <div class="container">
+        <div class="form-bg">
+            {form signInForm}
+                <h2 n:block=title>Přihlášení</h2>
+                <p>{input username placeholder=>"Uživatelské jméno"}</p>
+                <p>{input password placeholder=>"Heslo"}</p>
+                <p>{label remember/}
+                    {input remember}
+                    {input send class => button}
+                </p>
+            {/form}
+        </div>
+    </div>
+{/block}
+

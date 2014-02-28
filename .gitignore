@@ -1,0 +1,16 @@
+.idea
+composer.lock
+
+log/*
+temp/*
+libs/composer/*
+storage/*
+
+!libs/netterobots.txt
+.DS_Store
+!*.gitignore
+!*.htaccess
+!*README.md
+!web.config
+app/config/config.local.neon
+www/webtemp/*

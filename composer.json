@@ -1,0 +1,28 @@
+{
+    "name": "joseki/sandbox",
+    "description": "This custom extension of nette/sandbox. \nIncludes:\n\t- Webloader css/js loading\n\t- LeanMapper (including Query Object)\n\t- Nextras DatePicker\n\t- Kdyby Replicator\n\t- Front, Admin, Cron and App (root) modules\n\t- LeanMapper Entity authentication",
+    "homepage": "http://nette.org",
+    "license": ["MIT"],
+    "authors": [
+        {
+            "name": "Miroslav Paulík",
+            "homepage": "https://github.com/castamir"
+        }
+    ],
+    "config": {
+        "vendor-dir": "libs/composer"
+    },
+    "require": {
+        "php": ">= 5.3.0",
+        "nette/nette": ">= 2.1.0",
+        "joseki/leanmapper-extension": ">= 0.1.0",
+        "janmarek/webloader": ">= 2.0.0",
+        "nextras/datagrid": "dev-master",
+        "nextras/forms": "dev-master",
+        "texy/texy": ">= 2.4",
+        "kdyby/forms-replicator": "@dev"
+    },
+    "require-dev": {
+        "nette/tester": ">= 1.0.0"
+    }
+}

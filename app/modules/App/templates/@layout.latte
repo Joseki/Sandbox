@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="robots" content="{$robots}" n:ifset="$robots">
+
+    <title>{block title|striptags}Sandbox{/block}</title>
+
+    {control css}
+    {block layoutStyles}{/block}
+    {block styles}{/block}
+
+    <link rel="shortcut icon" href="{$basePath}/favicon.ico">
+
+    {control js}
+
+    {block head}{/block}
+</head>
+
+<body>
+    <script> document.documentElement.className += ' js' </script>
+
+    {block main}
+        <div id="site">
+            <div id="main">
+                <header>{block topMenu}{/block}</header>
+                {block menu}{/block}
+                <div id="content">{block content}{/block}</div>
+                <div class="clear"></div>
+            </div>
+            <footer>Copyright © {=date("Y")}, Paulík Miroslav</footer>
+        </div>
+    {/block}
+
+    {block scripts}{/block}
+</body>
+</html>

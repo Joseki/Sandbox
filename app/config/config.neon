@@ -1,0 +1,74 @@
+includes:
+    - config.local.neon
+    - config.model.neon
+
+parameters:
+    name: Sandbox
+    libsDir: %appDir%/../libs
+    storageDir: %appDir%/../storage
+
+php:
+    date.timezone: Europe/Prague
+
+nette:
+    application:
+        errorPresenter: Error
+        mapping:
+            *: App\*Module\*Presenter
+
+    container:
+        debugger: true
+
+    session:
+        expiration: 14 days
+        name: %name%
+
+services:
+    # alternative security storage
+    nette.userStorage:
+        class: Services\Storage\UserStorage
+    - Services\Security\Authenticator
+
+    # system services
+    - App\RouterFactory
+    router: @App\RouterFactory::createRouter
+
+    # extension overiding services
+    wlCssFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%)
+    cssMin: Services\CssMin
+
+    # presenters
+    -
+        class: App\BasePresenter
+        setup:
+            - $appName(%name%)
+
+    # model inicialization services
+    - LeanMapper\Connection(%db%)
+    - Joseki\LeanMapper\Mapper
+
+extensions:
+    webloader: WebLoader\Nette\Extension
+
+webloader:
+    css:
+        default:
+            remoteFiles:
+                - http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/redmond/jquery-ui.min.css
+            files:
+                - screen.css
+                - flash.css
+                - tables.css
+            filters:
+                - @wlCssFilter
+                - @cssMin
+    js:
+        default:
+            remoteFiles:
+                - http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js
+                - http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js
+                - http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/i18n/jquery-ui-i18n.min.js
+            files:
+                - %libsDir%/composer/nette/nette/client-side/netteForms.js
+                - {files: ["*.js"], from: %wwwDir%/js} # Nette\Utils\Finder support
+

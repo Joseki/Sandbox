@@ -1,0 +1,2 @@
+Disallow: /composer
+Disallow: /fshl/fshl_cache
