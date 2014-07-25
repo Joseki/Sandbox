@@ -49,7 +49,7 @@ class SignForm extends Control
             $this->user->setExpiration('30 minutes', true);
             $this->onSuccess();
         } catch (AuthenticationException $e) {
-            $form->addError('Zadané přihlašovací údaje nejsou platné.');
+            $form->addError('Invalid credentials.');
         }
     }
 
@@ -64,9 +64,9 @@ class SignForm extends Control
 
         $form->getElementPrototype()->class = 'sign-form';
 
-        $form->addText('username', 'Uživatelské jméno')->setRequired();
-        $form->addPassword('password', 'Heslo')->setRequired();
-        $form->addSubmit('submit', 'Přihlásit se');
+        $form->addText('username', 'Login')->setRequired();
+        $form->addPassword('password', 'Password')->setRequired();
+        $form->addSubmit('submit', 'Sign in');
 
         $form->onSuccess[] = [$this, 'processForm'];
 

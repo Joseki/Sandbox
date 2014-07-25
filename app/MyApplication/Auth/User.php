@@ -5,6 +5,7 @@ namespace MyApplication\Auth;
 use Joseki\LeanMapper\BaseEntity;
 use LeanMapper\Filtering;
 use Nette\Security\IIdentity;
+use Nette\Security\Passwords;
 
 /**
  * @property int $id
@@ -44,5 +45,19 @@ class User extends BaseEntity implements IIdentity
     public function getFullName()
     {
         return "{$this->name} {$this->surname}";
+    }
+
+
+
+    public function hashPassword($password)
+    {
+        return Passwords::hash($password);
+    }
+
+
+
+    public function isPasswordValid($password)
+    {
+        return Passwords::verify($password, $this->password);
     }
 }
