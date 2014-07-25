@@ -28,10 +28,6 @@ div.flash {
     margin: 1em 0;
 }
 
-div.clear {
-    clear: both;
-}
-
 a[href^="error:"] {
     background: red;
     color: white;

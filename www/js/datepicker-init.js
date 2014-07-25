@@ -1,6 +1,4 @@
-var unavailableDates;
-
-$(document).ready(function() {
+$(function() {
     $("input.date").each(function() { // input[type=date] does not work in IE
         var el = $(this);
         var value = el.val();
@@ -13,15 +11,6 @@ $(document).ready(function() {
         var maxDate = el.attr("max") || null;
         if (maxDate) {
             maxDate = $.datepicker.parseDate($.datepicker.W3C, maxDate);
-        }
-
-        var daysAsString = el.attr("nonBusinessDays");
-
-        if (daysAsString) {
-            unavailableDates = daysAsString.split(' ');
-        }
-        else {
-            unavailableDates = [];
         }
 
         // input.attr("type", "text") throws exception
@@ -44,13 +33,3 @@ $(document).ready(function() {
         el.val($.datepicker.formatDate(el.datepicker("option", "dateFormat"), date));
     });
 });
-
-function isAvailable(date) {
-    var ymd = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-
-    if ($.inArray(ymd, unavailableDates) < 0) {
-        return [true];
-    } else {
-        return [false];
-    }
-}

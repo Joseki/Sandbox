@@ -1,0 +1,13 @@
+{*{cache $current->id}*}
+<menu>
+    {foreach $items as $item}
+        {if $user->isAllowed($item)}
+            {if !empty($item->link) && $item->link != '#'}
+                <li><a href="{plink $item->link}">{$item->name}</a></li>
+            {elseif $item->link == '#'}
+                <li><a href="#">{$item->name}</a></li>
+            {/if}
+        {/if}
+    {/foreach}
+</menu>
+{*{/cache}*}

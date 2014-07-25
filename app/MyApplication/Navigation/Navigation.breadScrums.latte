@@ -1,0 +1,6 @@
+{cache $current->id}
+{foreach $items as $item}
+    <a href={plink $item->link}>{$item->name}</a>
+    {sep}&raquo;{/sep}
+{/foreach}
+{/cache}

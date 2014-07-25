@@ -1,13 +1,31 @@
 # rename this file to config.local.neon
 parameters:
     db:
-        host: 127.0.0.1
+        host: host
         driver: mysql
-        database: dbname
-        user: johndoe
-        password: the_password
-        profiler: TRUE
+        database: database
+        username: root
+        password:
+        profiler:
+            run: TRUE
+#            file: %tempDir%\db.log
+    mailer:
+        smtp: true
+        host: host
+        port: port
+        username: username
+        password: password
+#        secure: ssl
 
-services:
+#webloader:
+#  css:
+#    default:
+#      remoteFiles:
+#        - http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/redmond/jquery-ui.min.css
 
-factories:
+#  js:
+#    default:
+#      remoteFiles:
+#        - http://127.0.0.1:8080/_tools/jquery/jquery.js
+#        - http://127.0.0.1:8080/_tools/jquery/jquery.ui.js
+#        - http://127.0.0.1:8080/_tools/jquery/jquery.ui.lang.js

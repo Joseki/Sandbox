@@ -1,4 +1,8 @@
-services:
-
-    - App\Tables\UserRepository
-    - App\Tables\RoleRepository
+LeanMapper:
+  packages:
+    Auth:
+      - user
+      - role
+    Navigation:
+      - section
+      - restriction
