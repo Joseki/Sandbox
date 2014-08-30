@@ -14,8 +14,8 @@
     "require": {
         "php": ">= 5.3.0",
         "nette/nette": "~2.2",
-        "joseki/leanmapper-extension": "@dev",
-        "joseki/text-as-file-response": "@dev",
+        "joseki/leanmapper-extension": "@alpha",
+        "joseki/text-as-file-response": "~1.0",
         "kdyby/forms-replicator": "@dev",
         "nextras/datagrid": "~2.1",
         "nextras/forms": "~1.4",
