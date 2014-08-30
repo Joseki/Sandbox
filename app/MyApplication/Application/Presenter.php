@@ -1,9 +1,8 @@
 <?php
 namespace MyApplication\App;
 
+use MyApplication\Navigation\SectionRepository;
 use Nette\Application\InvalidPresenterException;
-use Nette\Templating\FileTemplate;
-use MyApplication\Auth\Authenticator;
 use WebLoader\Nette\CssLoader;
 use WebLoader\Nette\JavaScriptLoader;
 
@@ -23,6 +22,9 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
 
     /** @var \Nette\Caching\IStorage @inject */
     public $storage;
+
+//    /** @var SectionRepository @inject */
+//    public $sectionRepository;
 
     /** @var  string */
     public $appName = 'MyApplication';

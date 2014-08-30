@@ -1,0 +1,24 @@
+services:
+  wlCssFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%)
+  lessFilter: WebLoader\Filter\LessFilter
+  cssMin: MyApplication\CssMinFilter
+  jsMin: MyApplication\JsMinFilter
+
+webloader:
+  css:
+    default:
+      files:
+        - screen.css
+      filters:
+        - @wlCssFilter
+        - @cssMin
+      fileFilters:
+        - @lessFilter
+  js:
+    default:
+      files:
+        - %libsDir%/composer/nette/forms/src/assets/netteForms.js
+        - main.js
+      filters:
+        - @jsMin
+

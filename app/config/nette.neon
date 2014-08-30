@@ -1,0 +1,35 @@
+php:
+  date.timezone: Europe/Prague
+
+
+nette:
+  application:
+    errorPresenter: "App:Error"
+    mapping:
+      *: MyApplication\*\*Presenter
+
+  latte:
+    macros:
+      - MyApplication\Latte\ImageMacro
+
+#  container:
+#    debugger: true
+
+  session:
+    expiration: 14 days
+    name: %name%
+
+
+services:
+  # alternative security storage
+  nette.userStorage:
+    class: Services\Storage\UserStorage
+  user:
+    class: MyApplication\Security\User
+  - MyApplication\Auth\Authenticator
+  - MyApplication\Auth\Authorizator
+  nette.mailer: Nette\Mail\SmtpMailer(%mailer%)
+
+  # system services
+  - MyApplication\RouterFactory
+  router: @MyApplication\RouterFactory::createRouter(%version%)

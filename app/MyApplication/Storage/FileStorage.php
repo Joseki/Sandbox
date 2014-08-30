@@ -1,10 +1,10 @@
 <?php
 
-namespace Services\Storage;
+namespace MyApplication\Storage;
 
 use Nette\Utils\Strings;
 
-class FileStorage
+abstract class FileStorage
 {
 
     private $root;
@@ -17,12 +17,35 @@ class FileStorage
             $root .= '/';
         }
         $this->root = $root;
+        @mkdir($this->root, null, true);
     }
 
 
 
-    public function load($file)
+    public function load($filename)
     {
-        return file_get_contents($this->root . $file);
+        $path = $this->root . $filename;
+        if (!file_exists($path) || empty($filename)) {
+            throw new FileNotFoundException("File '$path' not found.");
+        }
+        return file_get_contents($path);
+    }
+
+
+
+    public function save($filename, $content)
+    {
+        $path = $this->root . $filename;
+        file_put_contents($path, $content);
+    }
+
+
+
+    /**
+     * @return string
+     */
+    public function getRoot()
+    {
+        return $this->root;
     }
 } 

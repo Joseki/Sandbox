@@ -17,27 +17,25 @@ class RouterFactory
 
     const ROUTER_CACHE_KEY = 'router';
 
-    private $version;
 
 
-
-    function __construct(IStorage $storage, $version)
+    function __construct(IStorage $storage)
     {
         $this->cache = new Nette\Caching\Cache($storage, self::ROUTER_CACHE_KEY);
-        $this->version = $version;
     }
 
 
 
     /**
+     * @param string $version
      * @return \Nette\Application\IRouter
      */
-    public function createRouter()
+    public function createRouter($version)
     {
-//        if (($router = $this->cache->load($this->version)) === null) {
+//        if (($router = $this->cache->load($version)) === null) {
             $router = new RouteList();
             $router[] = $module = new RouteList();
-            $module[] = new Route('<module>/<presenter>/<action>[/<id>]', [
+            $module[] = new Route('<module app|admin>/<presenter>/<action>[/<id>]', [
                 'presenter' => 'Homepage',
                 'action' => 'default',
             ]);
@@ -48,7 +46,7 @@ class RouterFactory
             ]);
             $router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
-//            $this->cache->save($this->version, $router);
+//            $this->cache->save($version, $router);
 //        }
         return $router;
     }

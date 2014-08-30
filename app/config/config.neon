@@ -1,4 +1,7 @@
 includes:
+  - nette.neon
+  - webloader.neon
+  - leanmapper.neon
   - config.local.neon
   - config.model.neon
 
@@ -10,78 +13,16 @@ parameters:
   name: MyApplication
   version: init
   libsDir: %appDir%/../libs
-  storageDir: %appDir%/../storage
-
-php:
-  date.timezone: Europe/Prague
-
-nette:
-  application:
-    errorPresenter: "App:Error"
-    mapping:
-      *: MyApplication\*\*Presenter
-
-#  container:
-#    debugger: true
-
-  session:
-    expiration: 14 days
-    name: %name%
+  resourceDir: %appDir%/../resources/upload
 
 services:
-  # alternative security storage
-  nette.userStorage:
-    class: Services\Storage\UserStorage
-  user:
-    class: MyApplication\Security\User
-  - MyApplication\Auth\Authenticator
-  - MyApplication\Auth\Authorizator
-  nette.mailer: Nette\Mail\SmtpMailer(%mailer%)
-
-  # system services
-  - class: MyApplication\RouterFactory
-    arguments: [..., %version%]
-  router: @MyApplication\RouterFactory::createRouter
-
-  # extension overiding services
-  wlCssFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%)
-  lessFilter: WebLoader\Filter\LessFilter
-  cssMin: MyApplication\CssMinFilter
-  jsMin: MyApplication\JsMinFilter
-
   # presenters
 
-  - Services\Mail\Mailer(@nette.mailer, %productionMode%)
-  - Services\Storage\FileStorage(%storageDir%)
+  #services
+  - MyApplication\Storage\ImageStorage(%resourceDir%)
+  - MyApplication\Storage\ImageCacheStorage(%resourceDir%/cache)
 
   # factories
   - implement: MyApplication\Auth\SignFormFactory
   - implement: MyApplication\Navigation\NavigationFactory
-
-LeanMapper:
-  host: %db.host%
-  username: %db.username%
-  password: %db.password%
-  driver: %db.driver%
-  database: %db.database%
-  lazy: TRUE
-  profiler: %db.profiler%
-
-webloader:
-  css:
-    default:
-      files:
-        - screen.css
-      filters:
-        - @wlCssFilter
-        - @cssMin
-      fileFilters:
-        - @lessFilter
-  js:
-    default:
-      files:
-        - %libsDir%/composer/nette/forms/src/assets/netteForms.js
-        - main.js
-      filters:
-        - @jsMin
 

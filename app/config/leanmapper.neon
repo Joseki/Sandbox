@@ -1,0 +1,8 @@
+LeanMapper:
+  host: %db.host%
+  username: %db.username%
+  password: %db.password%
+  driver: %db.driver%
+  database: %db.database%
+  lazy: TRUE
+  profiler: %db.profiler%
