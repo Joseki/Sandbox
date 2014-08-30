@@ -17,6 +17,7 @@ webloader:
   js:
     default:
       files:
+        - jquery/jquery.js
         - %libsDir%/composer/nette/forms/src/assets/netteForms.js
         - main.js
       filters:

@@ -6,26 +6,10 @@ parameters:
         database: database
         username: root
         password:
-        profiler:
-            run: TRUE
-#            file: %tempDir%\db.log
+        profiler: true
     mailer:
         smtp: true
         host: host
         port: port
         username: username
         password: password
-#        secure: ssl
-
-#webloader:
-#  css:
-#    default:
-#      remoteFiles:
-#        - http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/redmond/jquery-ui.min.css
-
-#  js:
-#    default:
-#      remoteFiles:
-#        - http://127.0.0.1:8080/_tools/jquery/jquery.js
-#        - http://127.0.0.1:8080/_tools/jquery/jquery.ui.js
-#        - http://127.0.0.1:8080/_tools/jquery/jquery.ui.lang.js
