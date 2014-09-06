@@ -53,7 +53,7 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
             $catched = false;
             try {
                 $errorPresenter = implode(":", $modules) . ':Error';
-                $errorPresenterClass = $this->appl->getPresenterFactory()->getPresenterClass($errorPresenter);
+                $this->appl->getPresenterFactory()->getPresenterClass($errorPresenter);
             } catch (InvalidPresenterException $e) {
                 $catched = true;
             }
@@ -80,11 +80,9 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
         $presenter = substr($name, strrpos(':' . $name, ':'));
         $layout = $this->layout ? $this->layout : 'layout';
         $dir = dirname($this->getReflection()->getFileName());
-//        $dir = is_dir("$dir/templates") ? $dir : dirname($dir);
         $list = array(
             "$dir/templates/$presenter/@$layout.latte",
             "$dir/templates/$presenter.@$layout.latte",
-            "$dir/$presenter/@$layout.latte",
             "$dir/$presenter.@$layout.latte",
         );
         do {
@@ -109,7 +107,6 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
         return array(
             "$dir/templates/$presenter/$this->view.latte",
             "$dir/templates/$presenter.$this->view.latte",
-            "$dir/$presenter/$this->view.latte",
             "$dir/$presenter.$this->view.latte",
         );
     }
