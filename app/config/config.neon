@@ -1,7 +1,7 @@
 includes:
-  - nette.neon
-  - webloader.neon
-  - leanmapper.neon
+  - config.nette.neon
+  - extension.webloader.neon
+  - extension.leanmapper.neon
   - config.local.neon
   - config.model.neon
 

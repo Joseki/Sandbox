@@ -4,8 +4,8 @@ parameters:
         host: host
         driver: mysql
         database: database
-        username: root
-        password:
+        username: username
+        password: password
         profiler: true
     mailer:
         smtp: true
