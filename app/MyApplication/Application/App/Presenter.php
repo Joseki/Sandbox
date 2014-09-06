@@ -1,7 +1,7 @@
 <?php
 namespace MyApplication\App;
 
-use MyApplication\Navigation\SectionRepository;
+use Joseki\Application\Manager;
 use Nette\Application\InvalidPresenterException;
 use WebLoader\Nette\CssLoader;
 use WebLoader\Nette\JavaScriptLoader;
@@ -23,11 +23,8 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
     /** @var \Nette\Caching\IStorage @inject */
     public $storage;
 
-//    /** @var SectionRepository @inject */
-//    public $sectionRepository;
-
-    /** @var  string */
-    public $appName = 'MyApplication';
+    /** @var  Manager @inject */
+    public $applicationManager;
 
 
 
@@ -42,7 +39,7 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
     protected function beforeRender()
     {
         parent::beforeRender();
-        $this->template->appName = $this->appName;
+        $this->template->appName = $this->applicationManager->getName();
     }
 
 

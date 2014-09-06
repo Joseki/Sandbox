@@ -15,6 +15,10 @@ nette:
 #  container:
 #    debugger: true
 
+  debugger:
+    maxDepth: 6
+    maxLen: 2000
+
   session:
     expiration: 14 days
     name: %name%
@@ -32,4 +36,4 @@ services:
 
   # system services
   - MyApplication\RouterFactory
-  router: @MyApplication\RouterFactory::createRouter(%version%)
+  router: @MyApplication\RouterFactory::createRouter(@applicationManager::getVersion())

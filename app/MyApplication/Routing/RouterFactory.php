@@ -32,7 +32,7 @@ class RouterFactory
      */
     public function createRouter($version)
     {
-//        if (($router = $this->cache->load($version)) === null) {
+        if (($router = $this->cache->load($version)) === null) {
             $router = new RouteList();
             $router[] = $module = new RouteList();
             $module[] = new Route('<module app|admin>/<presenter>/<action>[/<id>]', [
@@ -46,8 +46,8 @@ class RouterFactory
             ]);
             $router[] = new Route('index.php', 'Front:Homepage:default', Route::ONE_WAY);
 
-//            $this->cache->save($version, $router);
-//        }
+            $this->cache->save($version, $router);
+        }
         return $router;
     }
 

@@ -16,6 +16,7 @@ $configurator->setTempDirectory(__DIR__ . '/../temp');
 
 // Create Dependency Injection container from config.neon file
 $configurator->addConfig(__DIR__ . '/config/config.neon');
+$configurator->addConfig(__DIR__ . '/../resources/version.neon');
 $container = $configurator->createContainer();
 
 return $container;

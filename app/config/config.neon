@@ -11,7 +11,6 @@ extensions:
 
 parameters:
   name: MyApplication
-  version: init
   libsDir: %appDir%/../libs
   resourceDir: %appDir%/../resources/upload
 
@@ -19,8 +18,10 @@ services:
   # presenters
 
   #services
+  applicationManager: Joseki\Application\Manager(%version%, %name%)
   - MyApplication\Storage\ImageStorage(%resourceDir%)
   - MyApplication\Storage\ImageCacheStorage(%resourceDir%/cache)
+#  - Services\TextConvertor(@httpRequest, %wwwDir%)
 
   # factories
   - implement: MyApplication\Auth\SignFormFactory
