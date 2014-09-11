@@ -4,16 +4,16 @@ php:
 
 nette:
   application:
-    errorPresenter: "App:Error"
+    errorPresenter: 'Application:Error'
     mapping:
-      *: MyApplication\*\*Presenter
+      *: Blog\*\*Presenter
 
   latte:
     macros:
-      - MyApplication\Latte\ImageMacro
+      - Blog\Latte\ImageMacro
 
-#  container:
-#    debugger: true
+  container:
+    debugger: true
 
   debugger:
     maxDepth: 6
@@ -27,13 +27,20 @@ nette:
 services:
   # alternative security storage
   nette.userStorage:
-    class: Services\Storage\UserStorage
+    class: Blog\Storage\UserStorage
   user:
-    class: MyApplication\Security\User
-  - MyApplication\Auth\Authenticator
-  - MyApplication\Auth\Authorizator
+    class: Blog\Security\User
+  - Blog\Auth\Authenticator
+  - Blog\Auth\Authorizator
   nette.mailer: Nette\Mail\SmtpMailer(%mailer%)
 
+#  application:
+#    class: Joseki\Application\Application
+
   # system services
-  - MyApplication\RouterFactory
-  router: @MyApplication\RouterFactory::createRouter(@applicationManager::getVersion())
+  applicationManager: Joseki\Application\Manager(%version%, %name%)
+  routerFactory: Blog\RouterFactory
+  router: @routerFactory::createRouter(@applicationManager::getVersion(), %debugMode%)
+#  - class: Joseki\Application\ErrorPresenterFactory
+#    setup:
+#      - setDefaultErrorPresenter('Application:Error')

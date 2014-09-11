@@ -7,10 +7,11 @@ includes:
 
 extensions:
   webloader: WebLoader\Nette\Extension
-  LeanMapper: MyApplication\LeanMapper\DI\Extension
+  LeanMapper: Blog\LeanMapper\DI\Extension
+  ErrorPresenter: Joseki\Application\DI\ErrorPresenterExtension
 
 parameters:
-  name: MyApplication
+  name: Blog
   libsDir: %appDir%/../libs
   resourceDir: %appDir%/../resources/upload
 
@@ -18,12 +19,10 @@ services:
   # presenters
 
   #services
-  applicationManager: Joseki\Application\Manager(%version%, %name%)
-  - MyApplication\Storage\ImageStorage(%resourceDir%)
-  - MyApplication\Storage\ImageCacheStorage(%resourceDir%/cache)
+  - Blog\Storage\ImageStorage(%resourceDir%)
+  - Blog\Storage\ImageCacheStorage(%resourceDir%/cache)
 #  - Services\TextConvertor(@httpRequest, %wwwDir%)
 
   # factories
-  - implement: MyApplication\Auth\SignFormFactory
-  - implement: MyApplication\Navigation\NavigationFactory
-
+  - implement: Blog\Auth\SignFormFactory
+  - implement: Blog\Navigation\NavigationFactory

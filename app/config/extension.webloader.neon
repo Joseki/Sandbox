@@ -1,30 +1,77 @@
 services:
   wlCssFilter: WebLoader\Filter\CssUrlsFilter(%wwwDir%)
   lessFilter: WebLoader\Filter\LessFilter
-  cssMin: MyApplication\CssMinFilter
-  jsMin: MyApplication\JsMinFilter
+  cssMin: Blog\CssMinFilter
+  jsMin: Blog\JsMinFilter
 
 webloader:
   css:
+    # application CSS
     default:
       files:
-        - bootstrap.css
-        - bootstrap-tagsinput.css
-        - octicons.css
+        - bootstrap/bootstrap-tagsinput.css
         - screen.css
       filters:
         - @wlCssFilter
         - @cssMin
-      fileFilters:
-        - @lessFilter
+    # minified bootstrap, octicons, jquery etc
+    libs:
+      files:
+        - jquery/theme/redmond.css
+        - bootstrap/bootstrap.css
+        - bootstrap/bootstrap-theme.css
+        - github/octicons.css
+    # texyla
+    texyla:
+      files:
+        - texyla/css/style.css
+      filters:
+        - @wlCssFilter
+        - @cssMin
+
   js:
+    # application JS
     default:
       files:
-        - jquery/jquery.js
-        - jquery/jquery.ui.js
-        - jquery/jquery.ui.lang.js
         - %libsDir%/composer/nette/forms/src/assets/netteForms.js
         - main.js
       filters:
         - @jsMin
+    # minified bootstrap, jquery etc
+    libs:
+      files:
+        - jquery/jquery.js
+        - jquery/jquery.ui.js
+        - jquery/jquery.ui.lang.js
+    # texyla
+    texyla:
+      files:
+        # core
+        - texyla/js/texyla.js
+        - texyla/js/selection.js
+        - texyla/js/texy.js
+        - texyla/js/buttons.js
+        - texyla/js/dom.js
+        - texyla/js/view.js
+        - texyla/js/ajaxupload.js
+        - texyla/js/window.js
+            
+        # languages
+        - texyla/languages/cs.js
+        - texyla/languages/sk.js
+        - texyla/languages/en.js
+            
+        # plugins
+        - texyla/plugins/keys/keys.js
+        - texyla/plugins/resizableTextarea/resizableTextarea.js
+        - texyla/plugins/img/img.js
+        - texyla/plugins/table/table.js
+        - texyla/plugins/link/link.js
+        - texyla/plugins/emoticon/emoticon.js
+        - texyla/plugins/symbol/symbol.js
+        - texyla/plugins/files/files.js
+        - texyla/plugins/color/color.js
+        - texyla/plugins/textTransform/textTransform.js
+        - texyla/plugins/youtube/youtube.js
+        - texyla/plugins/gravatar/gravatar.js
 
