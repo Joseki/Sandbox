@@ -1,3 +1,6 @@
+extensions:
+  LeanMapper: Joseki\LeanMapper\DI\Extension
+
 LeanMapper:
   host: %db.host%
   username: %db.username%
@@ -6,3 +9,13 @@ LeanMapper:
   database: %db.database%
   lazy: TRUE
   profiler: %db.profiler%
+
+  mapperClass: MyApplication\LeanMapper\Mapper
+
+  packages:
+    Auth:
+      - user
+      - role
+    Navigation:
+      - section
+      - restriction

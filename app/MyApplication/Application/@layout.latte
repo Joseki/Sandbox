@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">{default $robots = 'noindex, nofollow'}
+    <meta name="robots" content="{$robots}">
+    <title>{block title|striptags}Sandbox{/block}</title>
+    {*<link rel="shortcut icon" href="{$basePath}/favicon.ico">*}
+
+    {control css}
+    {block styles}{/block}
+
+    {block head}{/block}
+</head>
+<body>
+    <script> document.documentElement.className += ' js' </script>
+
+    {block main}
+        <div id="content">
+            <div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message|noescape}</div>
+            {block content}{/block}
+        </div>
+        <footer class="wide">Copyright © {date("Y")}</footer>
+    {/block}
+
+    {control js}
+    {block scripts}{/block}
+</body>
+</html>

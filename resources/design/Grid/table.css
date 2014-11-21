@@ -1,0 +1,39 @@
+[jsk-column] {
+  float: left;
+}
+[jsk-column~="12"] {
+  width: 100%;
+}
+[jsk-column~="11"] {
+  width: 91.66666667%;
+}
+[jsk-column~="10"] {
+  width: 83.33333333%;
+}
+[jsk-column~="9"] {
+  width: 75%;
+}
+[jsk-column~="8"] {
+  width: 66.66666667%;
+}
+[jsk-column~="7"] {
+  width: 58.33333333%;
+}
+[jsk-column~="6"] {
+  width: 50%;
+}
+[jsk-column~="5"] {
+  width: 41.66666667%;
+}
+[jsk-column~="4"] {
+  width: 33.33333333%;
+}
+[jsk-column~="3"] {
+  width: 25%;
+}
+[jsk-column~="2"] {
+  width: 16.66666667%;
+}
+[jsk-column~="1"] {
+  width: 8.33333333%;
+}

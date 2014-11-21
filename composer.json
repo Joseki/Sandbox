@@ -14,16 +14,15 @@
     "require": {
         "php": ">= 5.3.0",
         "nette/nette": "~2.2",
-        "joseki/leanmapper-extension": "@alpha",
-        "joseki/text-as-file-response": "~1.0",
+        "joseki/error-presenter-extension": "~1.0",
+        "joseki/forms": "~1.0",
+        "joseki/leanmapper-extension": "@dev",
+        "joseki/webloader-filters": "~1.0",
         "kdyby/forms-replicator": "@dev",
         "nextras/datagrid": "~2.1",
         "nextras/forms": "~1.4",
-        "texy/texy": "~2.4",
         "janmarek/webloader": "~2.2",
-        "leafo/lessphp": "~0.4",
-        "tedivm/jshrink": "~1.0",
-        "natxet/CssMin": "@dev"
+        "robmorgan/phinx": "~0.3"
     },
     "require-dev": {
         "nette/tester": "~1.0"

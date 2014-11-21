@@ -1,0 +1,2 @@
+extensions:
+  ErrorPresenter: Joseki\Application\DI\ErrorPresenterExtension

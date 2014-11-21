@@ -1,0 +1,32 @@
+php:
+  date.timezone: Europe/Prague
+
+
+nette:
+  application:
+    errorPresenter: 'Error'
+    mapping:
+      *: MyApplication\Application\*\*Presenter
+
+  container:
+    debugger: true
+
+  debugger:
+    maxDepth: 6
+    maxLen: 2000
+
+  session:
+    expiration: 14 days
+    name: %name%
+
+
+services:
+  nette.mailer: Nette\Mail\SmtpMailer(%mailer%)
+  nette.userStorage: MyApplication\Storage\UserStorage
+  user: MyApplication\Security\User
+
+  - MyApplication\Auth\Authenticator
+  - MyApplication\Auth\Authorizator
+
+  routerFactory: MyApplication\RouterFactory(%debugMode%)
+  router: @routerFactory::createRouter

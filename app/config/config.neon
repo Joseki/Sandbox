@@ -1,28 +1,20 @@
 includes:
-  - config.nette.neon
-  - extension.webloader.neon
-  - extension.leanmapper.neon
   - config.local.neon
-  - config.model.neon
-
-extensions:
-  webloader: WebLoader\Nette\Extension
-  LeanMapper: Blog\LeanMapper\DI\Extension
-  ErrorPresenter: Joseki\Application\DI\ErrorPresenterExtension
+  - extension.Nette.neon
+  - extension.WebLoader.neon
+  - extension.LeanMapper.neon
 
 parameters:
-  name: Blog
+  name: MyApplication
   libsDir: %appDir%/../libs
-  resourceDir: %appDir%/../resources/upload
+  resourceDir: %appDir%/../resources
 
 services:
   # presenters
 
   #services
-  - Blog\Storage\ImageStorage(%resourceDir%)
-  - Blog\Storage\ImageCacheStorage(%resourceDir%/cache)
-#  - Services\TextConvertor(@httpRequest, %wwwDir%)
+  - MyApplication\Storage\FileStorage(%resourceDir%)
 
   # factories
-  - implement: Blog\Auth\SignFormFactory
-  - implement: Blog\Navigation\NavigationFactory
+  - implement: MyApplication\Auth\SignFormFactory
+  - implement: MyApplication\Navigation\NavigationFactory

@@ -1,8 +1,0 @@
-LeanMapper:
-  packages:
-    Auth:
-      - user
-      - role
-    Navigation:
-      - section
-      - restriction

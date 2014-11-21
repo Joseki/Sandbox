@@ -1,0 +1,15 @@
+# move this file to upper directory
+parameters:
+  db:
+    host: localhost
+    driver: mysql
+    database: database
+    username: username
+    password: password
+    profiler: true
+  mailer:
+    smtp: true
+    host: host
+    port: port
+    username: username
+    password: password
