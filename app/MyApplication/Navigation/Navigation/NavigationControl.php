@@ -1,13 +1,14 @@
 <?php
 
-
-namespace MyApplication\Navigation;
+namespace MyApplication\Navigation\Navigation;
 
 use Joseki\LeanMapper\Query;
+use MyApplication\Navigation\Section;
+use MyApplication\Navigation\SectionRepository;
 use Nette\Application\UI\Control;
 use Nette\Bridges\ApplicationLatte\Template;
 
-class Navigation extends Control
+class NavigationControl extends Control
 {
 
     /** @var SectionRepository */

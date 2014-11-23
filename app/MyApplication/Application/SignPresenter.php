@@ -4,7 +4,7 @@ namespace MyApplication\Application;
 
 class SignPresenter extends Presenter
 {
-    /** @var \MyApplication\Auth\SignFormFactory @inject */
+    /** @var \MyApplication\Auth\SignIn\SignInControlFactory @inject */
     public $signFormFactory;
 
 

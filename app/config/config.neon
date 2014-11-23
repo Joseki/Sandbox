@@ -16,5 +16,5 @@ services:
   - MyApplication\Storage\FileStorage(%resourceDir%)
 
   # factories
-  - implement: MyApplication\Auth\SignFormFactory
-  - implement: MyApplication\Navigation\NavigationFactory
+  - implement: MyApplication\Auth\SignIn\SignInControlFactory
+  - implement: MyApplication\Navigation\Navigation\NavigationControlFactory

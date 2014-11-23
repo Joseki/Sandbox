@@ -16,7 +16,7 @@ abstract class Presenter extends \Nette\Application\UI\Presenter
     /** @var \WebLoader\Nette\LoaderFactory @inject */
     public $webLoader;
 
-    /** @var \MyApplication\Navigation\NavigationFactory @inject */
+    /** @var \MyApplication\Navigation\Navigation\NavigationControlFactory @inject */
     public $navFactory;
 
 

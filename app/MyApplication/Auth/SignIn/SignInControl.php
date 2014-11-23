@@ -1,6 +1,6 @@
 <?php
 
-namespace MyApplication\Auth;
+namespace MyApplication\Auth\SignIn;
 
 use Nette\Application\UI\Control;
 use Nette\Application\UI\Form;
@@ -10,7 +10,7 @@ use Nette\Security\User;
 /**
  * @author Vojtěch Kohout
  */
-class SignForm extends Control
+class SignInControl extends Control
 {
 
     /** @var array */
