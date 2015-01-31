@@ -37,4 +37,14 @@ create SQL tables using Phinx migration tool
 libs/composer/bin/phinx migrate
 ```
 
+Packages name
+=============
+In your IDE (PhpStorm, NetBeans or whatever you use), replace all occurencies of MyApplication with whatever is your project name namespace (e.g. Joseki). Also rename app/MyApplication as well (in my case to Joseki).
+
+In this skeleton, I use composer to autoload my application scripts in app/ directory the same way as I do with dependecies stored in libs/ (vendor) directory so you need to call:
+
+```
+composer update
+```
+
 That's all folks!
