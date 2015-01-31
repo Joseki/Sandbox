@@ -28,8 +28,8 @@ cd webroot
 
 create config.local.neon and add valid credentials to a database layer
 ```
-cp app/config/template/config.local.neon cp app/config/config.local.neon
-vim cp app/config/config.local.neon
+cp app/config/template/config.local.neon app/config/config.local.neon
+vim app/config/config.local.neon
 ```
 
 create SQL tables using Phinx migration tool
