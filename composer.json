@@ -16,7 +16,7 @@
         "nette/nette": "~2.2",
         "joseki/error-presenter-extension": "~1.0",
         "joseki/forms": "~1.0",
-        "joseki/leanmapper-extension": "@dev",
+        "joseki/leanmapper-extension": "~1.0",
         "joseki/webloader-filters": "~1.0",
         "kdyby/forms-replicator": "@dev",
         "nextras/datagrid": "~2.1",
@@ -29,5 +29,7 @@
     },
     "autoload": {
         "classmap": ["app"]
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
