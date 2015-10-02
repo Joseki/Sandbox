@@ -1,0 +1,7 @@
+extensions:
+  Migration: Joseki\Migration\DI\MigrationExtension
+
+Migration:
+  migrationDir: %resourceDir%/migrations
+
+

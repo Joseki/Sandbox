@@ -1,8 +1,11 @@
 includes:
   - config.local.neon
+  - extension.joseki.console.neon
+  - extension.joseki.file-template.neon
+  - extension.joseki.lean-mapper.neon
+  - extension.joseki.migration.neon
   - extension.Nette.neon
   - extension.WebLoader.neon
-  - extension.LeanMapper.neon
 
 parameters:
   name: MyApplication

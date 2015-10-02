@@ -1,0 +1,57 @@
+<?php
+
+namespace ${NAMESPACE};
+
+use Joseki\Forms\Form;
+use Nette\Application\UI\Control;
+use Nette\Bridges\ApplicationLatte\Template;
+
+/**
+ * @method onSuccess()
+ * @method onError()
+ * @method Template createTemplate()
+ */
+class ${CONTROL} extends Control
+{
+
+    public $onSuccess = [];
+
+    public $onError = [];
+
+
+
+    /**
+     * ${CONTROL} constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+
+
+    public function render()
+    {
+        $template = $this->createTemplate();
+        $template->render(__DIR__ . '/template.latte');
+    }
+
+
+
+    protected function createComponentForm()
+    {
+        $form = new Form();
+
+        $form->addSubmit("send", "Send");
+        $form->onSuccess[] = $this->formSucceeded;
+
+        return $form;
+    }
+
+
+
+    public function formSucceeded(Form $form, $values)
+    {
+        throw new \Nette\NotImplementedException;
+    }
+}

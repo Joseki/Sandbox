@@ -1,0 +1,18 @@
+<?php
+
+namespace ${NAMESPACE};
+
+use Joseki\LeanMapper\Repository;
+use LeanMapperQuery\IQuery;
+
+/**
+ * @method ${ENTITY} get(${DS}id)
+ * @method ${ENTITY} findOneBy(IQuery ${DS}query)
+ * @method ${ENTITY}[] findAll(${DS}limit = null, ${DS}offset = null)
+ * @method ${ENTITY}[] findBy(IQuery ${DS}query)
+ * @method ${ENTITY}[] findCountBy(IQuery ${DS}query)
+ */
+class ${ENTITY}Repository extends Repository
+{
+
+}
