@@ -1,11 +1,11 @@
 # move this file to upper directory
 parameters:
   db:
-    host: 127.0.0.1
+    host: localhost
     driver: mysql
-    database: testing
-    username: root
-    password:
+    database: database
+    username: username
+    password: password
     profiler: true
   mailer:
     smtp: true
