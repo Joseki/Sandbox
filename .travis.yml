@@ -12,7 +12,8 @@ after_failure:
 
 before_script:
     # Install Nette Tester
-    - composer install --no-interaction --dev --prefer-source
+    - composer self-update
+    - composer install --no-interaction --prefer-source
     - mysql -e 'create database testing;'
     - cp tests/AppTests/MyApplication/files/config.local.neon app/config/
     - chmod +x bin/console
